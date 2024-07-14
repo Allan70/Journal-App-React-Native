@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, SafeAreaView, TextInput } from 'react-native';
 import QuillEditor, { QuillToolbar } from 'react-native-cn-quill';
@@ -112,6 +112,15 @@ export default function Writing() {
     },
   };
 
+  const currentDateTime = new Date();
+
+  useEffect(()=>{
+    if(currentDate == "" && currentTime == "")
+    {
+      setCurrentDate(currentDateTime.toDateString())
+      setCurrentTime(currentDateTime.toLocaleTimeString())
+    }
+  }, [])
   return (
     <SafeAreaView style={styles.root}>
       {/* Writing UI */}
@@ -125,7 +134,7 @@ export default function Writing() {
         {/* Add categories here */}
       </View>
       <View style={styles.createdAt}>
-        <Text style={{ color: 'lightgray' }}>Created at {currentTime}</Text>
+        <Text style={{ color: 'lightgray' }}>Created at {currentTime} {currentDate}</Text>
       </View>
 
       <View style={styles.toolbarHolder}>
