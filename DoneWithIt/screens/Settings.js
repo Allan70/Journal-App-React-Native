@@ -49,18 +49,18 @@ export default function Settings() {
               </View>
               <View style={[{ flexDirection: 'row' }]}>
                 <View>
-                  <Pressable>
-                    {/* <Image source={require('')} /> */}
+                  <Pressable style={[{backgroundColor: 'lightgray', marginRight: 20, padding: 5, borderRadius: 10}]}>
+                    <Image source={require('../assets/font-up.png')} style={[{width: 20, height: 20, margin: 5}]} />
                   </Pressable>
                 </View>
 
                 <View>
-                  <Pressable>
-                    {/* <Image source={require('')} /> */}
+                  <Pressable style={[{backgroundColor: 'lightgray', marginRight: 10, padding: 5, borderRadius: 10}]}>
+                    <Image source={require('../assets/font-down.png')}  style={[{width: 20, height: 20, margin: 5}]} />
                   </Pressable>
                 </View>
 
-                <View>
+                <View style={{alignSelf: 'center', marginLeft: 40}}>
                   <Text>Aa</Text>
                 </View>
               </View>
