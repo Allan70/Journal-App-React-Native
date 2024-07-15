@@ -2,8 +2,11 @@ import React from 'react'
 import { SafeAreaView,View, Text, StyleSheet, Pressable, Image, TextInput, ScrollView, Switch} from 'react-native' 
 import Userprofile from './components/Settings/Userprofile'
 import Passwordchange from './components/Settings/Passwordchange'
+import { isEnabled } from 'react-native/Libraries/Performance/Systrace'
 
 export default function Settings() {
+    const [isEnabled, setIsEnabled] = React.useState(false)
+    const toggleSwitch = () => setIsEnabled(previousState => !previousState)
   return (
     <SafeAreaView style={styles.safeAreaScreen}>
         <ScrollView>
@@ -14,12 +17,6 @@ export default function Settings() {
             <Passwordchange styles={styles}/>
 
             <View style={styles.settingsContainer}>
-                {/* 
-                    User Journal Text font, 
-                    theme, 
-                    time and date settings, 
-                    notification sounds 
-                */}
                 <Text  style={{fontSize: 20}}> Journal Settings</Text>
                 <View style={{flexDirection: 'column', width: "100%", paddingHorizontal: 15, marginTop: 10}}>
                     {/* Journal Font size */}
@@ -50,19 +47,36 @@ export default function Settings() {
                     {/* 24 Hr time format  */}
                     <View style={[{flexDirection: "row", marginBottom: 5, justifyContent: "space-between"}]}>
                         <Text>24hr time format</Text>
-                        <View></View>
+                        <View>
+                            {/* Toggle button */}
+                            <Switch 
+                                trackColor={{false: 'lightgray', true: 'lightblue'}}
+                                thumbColor={isEnabled? 'steelblue': 'gray'}
+                                ios_bacgroundColor = "#3e3e3e"
+                                onValueChange={toggleSwitch}
+                                value={isEnabled}
+                            />
+                        </View>
                     </View>
                     
                     {/* Date format */}
                     <View style={[{flexDirection: "row", marginBottom: 5, justifyContent: "space-between"}]}>
                         <Text>Date format</Text>
-                        <View></View>
+                        <View>
+                            {/* Text Dropdown */}
+                            <>
+                            </>
+                        </View>
                     </View>
                     
                     {/* Notification sound */}
                     <View style={[{flexDirection: "row", marginBottom: 5, justifyContent: "space-between"}]}>
                         <Text>Notification sound</Text>
-                        <View></View>
+                        <View>
+                            {/* Text Dropdown */}
+                            <>
+                            </>
+                        </View>
                     </View>
                 </View>
             </View>
