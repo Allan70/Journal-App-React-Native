@@ -1,5 +1,5 @@
 import React from 'react'
-import { SafeAreaView,View, Text, StyleSheet, Pressable, Image, TextInput, ScrollView} from 'react-native' 
+import { SafeAreaView,View, Text, StyleSheet, Pressable, Image, TextInput, ScrollView, Alert} from 'react-native' 
 
 export default function Userprofile(props) {
   const styles = props.styles
@@ -17,10 +17,16 @@ export default function Userprofile(props) {
         {/* Avatar Buttons */}
         <View style={[{}]}>
             <View style={[{flexDirection: 'row', width: "100%"}]}>
-                <Pressable style={[{backgroundColor: '#4684E0',  marginRight: 10, borderRadius: 5}]}>
+                <Pressable 
+                    onPress={()=>Alert.alert("Adding Avatar to profile")}
+                    style={[{backgroundColor: '#4684E0',  marginRight: 10, borderRadius: 5}]}
+                >
                     <Text style={[{color: 'white', paddingHorizontal: 10, paddingVertical: 5,}]}>Change Avatar</Text>
                 </Pressable>
-                <Pressable style={[{backgroundColor: '#DEDEDE',  paddingHorizontal: 10, paddingVertical: 5, borderRadius: 5}]}>
+                <Pressable 
+                    onPress={()=>Alert.alert("Adding Avatar to profile")}
+                    style={[{backgroundColor: '#DEDEDE',  paddingHorizontal: 10, paddingVertical: 5, borderRadius: 5}]}
+                 >
                     <Text style={[{color: 'red'}]}>Delete Avatar</Text>
                 </Pressable>
             </View>

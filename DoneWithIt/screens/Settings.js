@@ -1,17 +1,18 @@
 import React from 'react'
-import { SafeAreaView,View, Text, StyleSheet, Pressable, Image, TextInput, ScrollView} from 'react-native' 
+import { SafeAreaView,View, Text, StyleSheet, Pressable, Image, TextInput, ScrollView, Switch} from 'react-native' 
 import Userprofile from './components/Settings/Userprofile'
 import Passwordchange from './components/Settings/Passwordchange'
 
 export default function Settings() {
   return (
     <SafeAreaView style={styles.safeAreaScreen}>
+        <ScrollView>
             {/* User Profile section */}
             <Userprofile styles={styles}/>
 
             {/* Password change section */}
             <Passwordchange styles={styles}/>
-            
+
             <View style={styles.settingsContainer}>
                 {/* 
                     User Journal Text font, 
@@ -19,9 +20,53 @@ export default function Settings() {
                     time and date settings, 
                     notification sounds 
                 */}
-                <View style={{}}></View>
+                <Text  style={{fontSize: 20}}> Journal Settings</Text>
+                <View style={{flexDirection: 'column', width: "100%", paddingHorizontal: 15, marginTop: 10}}>
+                    {/* Journal Font size */}
+                    <View style={[{flexDirection: "row", width: "100%", marginBottom: 5, justifyContent:"space-between"}]}>
+                        <View>
+                            <Text>Journal Font Size</Text>
+                        </View> 
+                        <View style={[{flexDirection: "row"}]}>
+
+                             <View>
+                                <Pressable>
+                                    {/* <Image source={require("")}/> */}
+                                </Pressable>
+                             </View>
+
+                             <View>
+                                <Pressable>
+                                    {/* <Image source={require("")} /> */}
+                                </Pressable>
+                             </View>
+
+                             <View>
+                                <Text>Aa</Text>
+                             </View>
+                        </View>
+                    </View>
+                    
+                    {/* 24 Hr time format  */}
+                    <View style={[{flexDirection: "row", marginBottom: 5, justifyContent: "space-between"}]}>
+                        <Text>24hr time format</Text>
+                        <View></View>
+                    </View>
+                    
+                    {/* Date format */}
+                    <View style={[{flexDirection: "row", marginBottom: 5, justifyContent: "space-between"}]}>
+                        <Text>Date format</Text>
+                        <View></View>
+                    </View>
+                    
+                    {/* Notification sound */}
+                    <View style={[{flexDirection: "row", marginBottom: 5, justifyContent: "space-between"}]}>
+                        <Text>Notification sound</Text>
+                        <View></View>
+                    </View>
+                </View>
             </View>
-        {/* </ScrollView> */}
+        </ScrollView>
         </SafeAreaView>
   )
 }
@@ -58,7 +103,6 @@ const styles = StyleSheet.create({
         boxShadow: 4,
         boxShadowColor: 'black',
         padding:40,
-        paddingBottom: 0,
         shadowOffset: {width: -2, height: 0},  
         shadowColor: 'gray',  
         shadowOpacity: 0.2,  
@@ -85,7 +129,7 @@ const styles = StyleSheet.create({
     },
     settingsContainer: {
         flex: 1,
-        backgroundColor: 'green',
+        backgroundColor: 'white',
         margin: 20,
         marginBottom: 10,
         boxShadow: 4,

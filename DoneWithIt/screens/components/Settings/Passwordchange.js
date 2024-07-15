@@ -9,7 +9,7 @@ export default function Passwordchange(props) {
     <View style={styles.passwordContainer}>
     {/* User Email and Password */}
     <View style={{}}>
-        <Text>Change Password</Text>
+        <Text style={{fontSize: 20}}>Change Password</Text>
         <View style={[{paddingLeft: 150, paddingTop: 10}]}>
             <View>
                 <Text>Current Password</Text>
