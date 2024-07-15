@@ -11,7 +11,32 @@ export default function Settings() {
             {/* Password change section */}
             <View style={styles.passwordContainer}>
                 {/* User Email and Password */}
-                <View style={{}}></View>
+                <View style={{}}>
+                    <Text>Change Password</Text>
+                    <View style={[{paddingLeft: 150, paddingTop: 10}]}>
+                        <View>
+                            <Text>Current Password</Text>
+                            <TextInput
+                                style={[styles.profileTextInput]}
+                                placeholder="Current Password"
+                            />
+                        </View>
+                        <View>
+                            <Text>New Password</Text>
+                            <TextInput 
+                                style={[styles.profileTextInput]}
+                                placeholder="New Password"
+                            />
+                        </View>
+                        <View>
+                            <Text>Confirm New Password</Text>
+                            <TextInput 
+                                style={[styles.profileTextInput]}
+                                placeholder="Confirm New Password"
+                            />
+                        </View>
+                    </View>
+                </View>
             </View>
             <View style={styles.settingsContainer}>
                 {/* 
@@ -58,7 +83,8 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         boxShadow: 4,
         boxShadowColor: 'black',
-        padding: 40,
+        padding:40,
+        paddingBottom: 0,
         shadowOffset: {width: -2, height: 0},  
         shadowColor: 'gray',  
         shadowOpacity: 0.2,  
@@ -70,11 +96,12 @@ const styles = StyleSheet.create({
         backgroundColor: "lightgray", 
         padding: 2, 
         paddingLeft: 10,
-        borderRadius: 5
+        borderRadius: 5, 
+        marginBottom: 5
     },
     passwordContainer: {
         flex: 1, 
-        backgroundColor:'blue',
+        backgroundColor:'white',
         margin: 20,
         marginBottom: 10,
         boxShadow: 4,
