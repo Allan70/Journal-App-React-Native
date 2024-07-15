@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, View, Text, StyleSheet, Pressable, Image, FlatList, ScrollView, Switch } from 'react-native';
+import { SafeAreaView, View, Text, StyleSheet, Pressable, Image, ScrollView, Switch } from 'react-native';
 import Userprofile from './components/Settings/Userprofile';
 import Passwordchange from './components/Settings/Passwordchange';
 import DropDownPicker from 'react-native-dropdown-picker';
@@ -32,7 +32,7 @@ export default function Settings() {
 
   return (
     <SafeAreaView style={styles.safeAreaScreen}>
-      <ScrollView>
+      <ScrollView contentContainerStyle={styles.scrollView}>
         {/* User Profile section */}
         <Userprofile styles={styles} />
 
@@ -67,7 +67,7 @@ export default function Settings() {
             </View>
 
             {/* 24 Hr time format */}
-            <View style={[{ flexDirection: 'row', marginBottom: 15, justifyContent: 'space-between', alignItems: 'center',}]}>
+            <View style={[{ flexDirection: 'row', marginBottom: 15, justifyContent: 'space-between', alignItems: 'center' }]}>
               <Text>24hr time format</Text>
               <View>
                 {/* Toggle button */}
@@ -82,7 +82,7 @@ export default function Settings() {
             </View>
 
             {/* Date format */}
-            <View style={[{ flexDirection: 'row', marginBottom: 15, justifyContent: 'space-between', alignItems: 'center',  }]}>
+            <View style={[{ flexDirection: 'row', marginBottom: 15, justifyContent: 'space-between', alignItems: 'center', zIndex: dateOpen ? 1 : 0 }]}>
               <Text>Date format</Text>
               <View style={{ width: 150 }}>
                 {/* Text Dropdown : Date formats */}
@@ -94,14 +94,14 @@ export default function Settings() {
                   setValue={setDateValue}
                   setItems={setSelectDateItems}
                   containerStyle={styles.dropdownContainer}
-                  style={[styles.dropdown, {zIndex: 900}]}
+                  style={styles.dropdown}
                   dropDownStyle={styles.dropdownList}
                 />
               </View>
             </View>
 
             {/* Notification sound */}
-            <View style={[{ flexDirection: 'row', marginBottom: 5, justifyContent: 'space-between', alignItems: 'center' }]}>
+            <View style={[{ flexDirection: 'row', marginBottom: 5, justifyContent: 'space-between', alignItems: 'center', zIndex: soundOpen ? 1 : 0 }]}>
               <Text>Notification sound</Text>
               <View style={{ width: 150 }}>
                 {/* Text Dropdown : Sounds to use */}
@@ -129,6 +129,9 @@ const styles = StyleSheet.create({
   safeAreaScreen: {
     height: '100%',
     margin: 0,
+  },
+  scrollView: {
+    flexGrow: 1,
   },
   profileStyling: {
     width: 200,
@@ -191,11 +194,9 @@ const styles = StyleSheet.create({
   },
   dropdown: {
     backgroundColor: '#fafafa',
-    zIndex: 900,
-    height: "100%"
+    height: "100%",
   },
   dropdownList: {
     backgroundColor: '#fafafa',
   },
 });
-
