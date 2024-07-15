@@ -3,14 +3,13 @@ import { SafeAreaView,View, Text, StyleSheet, Pressable, Image, TextInput, Scrol
 
 export default function Settings() {
   return (
-    <SafeAreaView style={{height: "100%", margin: 0}}>
+    <SafeAreaView style={styles.safeAreaScreen}>
         {/* <ScrollView style={[styles.container, {backgroundColor: "pink"}]}> */}
-            <View style={[styles.profileContainer, {flexDirection: 'row'}]}>
+            <View style={[styles.profileContainer]}>
                 {/* User Profile Picture*/}
                 <View style={[{}, ]}>
-                    <Text style={[{}, ]}>Profile Picture</Text>
-                    <View style={[{width: 200, height: 200, borderRadius: 20}, ]}>
-                        <Image source={require("../assets/portrait.jpg")} style={[{width: "100%", height: "100%", borderRadius: 400,marginTop: 10}, ]}/>
+                    <View style={[styles.profileStyling]}>
+                        <Image source={require("../assets/portrait.jpg")} style={[styles.ImageStyle]}/>
                     </View>
                 </View>
                 {/* User Profile Items */}
@@ -35,7 +34,7 @@ export default function Settings() {
                                     Profile name
                                 </Text>
                             </View>
-                            <TextInput style={[{}]} placeholder='user'/>
+                            <TextInput style={[styles.profileTextInput]} placeholder='user'/>
                         </View>
                         {/* Profile Email */}
                         <View style={[{}]}>
@@ -44,7 +43,7 @@ export default function Settings() {
                                 Profile email
                             </Text>
                             </View>
-                            <TextInput style={[{}]} placeholder='user email'/>
+                            <TextInput style={[styles.profileTextInput]} placeholder='user email'/>
                         </View>
                     </View>
                 </View>
@@ -68,6 +67,21 @@ export default function Settings() {
 }
 
 const styles = StyleSheet.create({
+    safeAreaScreen: {
+        height: "100%", 
+        margin: 0
+    },
+    profileStyling: {
+        width: 200, 
+        height: 200, 
+        borderRadius: 20
+    },
+    ImageStyle: {
+        width: "100%", 
+        height: "100%", 
+        borderRadius: 400,
+        marginTop: 10
+    },
     container : {
         flex:1,
         width:"100%",
@@ -78,6 +92,7 @@ const styles = StyleSheet.create({
     profileContainer: {
         flex: 1,
         backgroundColor: 'white',
+        flexDirection: 'row',
         margin: 20,
         marginBottom: 10,
         boxShadow: 4,
@@ -88,6 +103,13 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.2,  
         shadowRadius: 3,  
         borderRadius: 10,
+    },
+    profileTextInput:{
+        width: "100%", 
+        backgroundColor: "lightgray", 
+        padding: 2, 
+        paddingLeft: 10,
+        borderRadius: 5
     },
     passwordContainer: {
         flex: 1, 
