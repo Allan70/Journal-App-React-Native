@@ -134,7 +134,7 @@ export default function Writing() {
         {/* Add categories here */}
       </View>
       <View style={styles.createdAt}>
-        <Text style={{ color: 'lightgray' }}>Created at {currentTime} {currentDate}</Text>
+        <Text style={{ color: 'gray' }}>Created at {currentTime} {currentDate}</Text>
       </View>
 
       <View style={styles.toolbarHolder}>
