@@ -10,6 +10,7 @@ import Signup from './screens/Signup';
 import Dashboard from './screens/Dashboard';
 import Writing from './screens/Writing';
 import Settings from './screens/Settings';
+import Editing from './screens/Editing';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -17,9 +18,10 @@ const Tab = createBottomTabNavigator();
 function HomeTabs() {
   return (
     <Tab.Navigator>
-      <Tab.Screen name="Writing" component={Writing} />
-      <Tab.Screen name="Settings" component={Settings} />
       <Tab.Screen name="Dashboard" component={Dashboard} />
+      <Tab.Screen name="Editing" component={Writing} />
+      <Tab.Screen name="Writing" component={Editing} />
+      <Tab.Screen name="Settings" component={Settings} />
     </Tab.Navigator>
   );
 }
