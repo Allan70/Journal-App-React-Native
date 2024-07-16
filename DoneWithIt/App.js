@@ -14,8 +14,8 @@ export default function App() {
     return ( 
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="Settings" component={Settings} />
           <Stack.Screen name="Writing" component={Writing} />
+          <Stack.Screen name="Settings" component={Settings} />
           <Stack.Screen name="Dashboard" component={Dashboard} />
           <Stack.Screen name="Signup" component={Signup} />
           <Stack.Screen name="Login" component={Login} />
@@ -24,27 +24,3 @@ export default function App() {
       </NavigationContainer>
     );
 }
-
-
-/** LAST GOOD COPY **/
-
-// import { NavigationContainer } from '@react-navigation/native';
-// import { StatusBar } from 'expo-status-bar';
-
-// import { NavigationContainer } from '@react-navigation/native'
-// import { createStackNavigator } from '@react-navigation/stack'
-
-// import LandingPage from './pages/LandingPage';
-// import Login from './pages/Login';
-// import Signup from './pages/Signup';
-// import Dashboard from './pages/Dashboard';
-
-// const Stack = createStackNavigator();
-
-// export default function App() {
-//     return ( 
-//     <NavigationContainer>
-//       <Dashboard />
-//     </NavigationContainer>
-//     );
-// }

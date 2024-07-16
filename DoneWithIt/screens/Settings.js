@@ -55,8 +55,8 @@ export default function Settings() {
                 </View>
 
                 <View>
-                  <Pressable style={[{backgroundColor: 'lightgray', marginRight: 10, padding: 5, borderRadius: 10}]}>
-                    <Image source={require('../assets/font-down.png')}  style={[{width: 20, height: 20, margin: 5}]} />
+                  <Pressable style={[{backgroundColor: 'lightgray', marginRight: 10, width: 40, height: 40, padding: 5, borderRadius: 10}]}>
+                    <Image source={require('../assets/font-down.png')}  style={[{width: 15, height: 15, margin: 5, alignSelf: 'center', justifySelf: 'center', margin: 'auto'}]} />
                   </Pressable>
                 </View>
 
