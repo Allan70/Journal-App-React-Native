@@ -1,5 +1,8 @@
+import 'react-native-gesture-handler';
+import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack'
+import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Landing from './screens/LandingPage';
 import Login from './screens/Login';
@@ -9,18 +12,27 @@ import Writing from './screens/Writing';
 import Settings from './screens/Settings';
 
 const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
+
+function HomeTabs() {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="Writing" component={Writing} />
+      <Tab.Screen name="Settings" component={Settings} />
+      <Tab.Screen name="Dashboard" component={Dashboard} />
+    </Tab.Navigator>
+  );
+}
 
 export default function App() {
-    return ( 
-      <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name="Writing" component={Writing} />
-          <Stack.Screen name="Settings" component={Settings} />
-          <Stack.Screen name="Dashboard" component={Dashboard} />
-          <Stack.Screen name="Signup" component={Signup} />
-          <Stack.Screen name="Login" component={Login} />
-          <Stack.Screen name="Landing" component={Landing} />
-        </Stack.Navigator>
-      </NavigationContainer>
-    );
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeTabs} />
+        <Stack.Screen name="Signup" component={Signup} />
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Landing" component={Landing} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 }
