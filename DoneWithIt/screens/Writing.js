@@ -122,7 +122,7 @@ export default function Writing() {
     }
   }, [])
   return (
-    <SafeAreaView style={styles.root}>
+    <SafeAreaView style={[styles.root, {paddingTop: 40}]}>
       {/* Writing UI */}
       <View>
         <TextInput

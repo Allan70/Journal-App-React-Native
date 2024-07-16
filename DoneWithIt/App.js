@@ -11,17 +11,20 @@ import Dashboard from './screens/Dashboard';
 import Writing from './screens/Writing';
 import Settings from './screens/Settings';
 import Editing from './screens/Editing';
+import Search from './screens/Search';
+import CustomTabBar from './screens/components/CustomTabBar';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 function HomeTabs() {
   return (
-    <Tab.Navigator>
-      <Tab.Screen name="Dashboard" component={Dashboard} />
-      <Tab.Screen name="Editing" component={Writing} />
-      <Tab.Screen name="Writing" component={Editing} />
-      <Tab.Screen name="Settings" component={Settings} />
+    <Tab.Navigator tabBar={props => <CustomTabBar {...props} />}>
+      <Tab.Screen name="Home" component={Dashboard}  options={{headerShown: false}} />
+      <Tab.Screen name="Editing" component={Writing}  options={{headerShown: false}}/>
+      <Tab.Screen name="Writing" component={Editing}  options={{headerShown: false}}/>
+      <Tab.Screen name="Search" component={Search}  options={{headerShown: false}}/>
+      <Tab.Screen name="Settings" component={Settings}  />
     </Tab.Navigator>
   );
 }
@@ -30,10 +33,10 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeTabs} />
-        <Stack.Screen name="Signup" component={Signup} />
-        <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="Landing" component={Landing} />
+        <Stack.Screen name="KALAMU" component={HomeTabs} options={{headerShown: false}}/>
+        <Stack.Screen name="Signup" component={Signup}  options={{headerShown: false}} />
+        <Stack.Screen name="Login" component={Login}  options={{headerShown: false}}/>
+        <Stack.Screen name="Landing" component={Landing}  options={{headerShown: false}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

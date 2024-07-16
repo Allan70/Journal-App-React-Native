@@ -122,7 +122,7 @@ export default function Editing() {
     }
   }, [])
   return (
-    <SafeAreaView style={styles.root}>
+    <SafeAreaView style={[styles.root, {paddingTop: 40}]}>
       {/* Writing UI */}
       <View>
         <TextInput
@@ -161,7 +161,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   textStyle: {
     fontSize: 40,
