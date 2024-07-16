@@ -138,7 +138,6 @@ export default function Writing() {
       </View>
 
       <View style={styles.toolbarHolder}>
-        {/* Add categories here */}
         <QuillToolbar
           editor={_editor}
           options="basic"

@@ -39,6 +39,7 @@ export default function Settings() {
         {/* Password change section */}
         <Passwordchange styles={styles} />
 
+        {/* Journal Settings Container */}
         <View style={styles.settingsContainer}>
           <Text style={{ fontSize: 20 }}>Journal Settings</Text>
           <View style={{ flexDirection: 'column', width: '100%', paddingHorizontal: 15, marginTop: 10 }}>
@@ -104,7 +105,7 @@ export default function Settings() {
             <View style={[{ flexDirection: 'row', marginBottom: 5, justifyContent: 'space-between', alignItems: 'center', zIndex: soundOpen ? 1 : 0 }]}>
               <Text>Notification sound</Text>
               <View style={{ width: 150 }}>
-                {/* Text Dropdown : Sounds to use */}
+                {/* Text Dropdown : Notification Sounds to use */}
                 <DropDownPicker
                   open={soundOpen}
                   value={soundValue}
@@ -116,10 +117,30 @@ export default function Settings() {
                   style={styles.dropdown}
                   dropDownStyle={styles.dropdownList}
                 />
+
               </View>
             </View>
           </View>
         </View>
+
+        {/* Saving and Deleting Setting Changes Buttons */}
+        <View style={[{padding: 20, marginLeft: "54%"}]}>
+            <View style={[{flexDirection: 'row', width: "100%"}]}>
+                <Pressable 
+                    onPress={()=>Alert.alert("Adding Avatar to profile")}
+                    style={[{backgroundColor: '#4684E0',  marginRight: 10, borderRadius: 5}]}
+                >
+                    <Text style={[{color: 'white', paddingHorizontal: 10, paddingVertical: 5,}]}>Save Changes</Text>
+                </Pressable>
+                <Pressable 
+                    onPress={()=>Alert.alert("Adding Avatar to profile")}
+                    style={[{backgroundColor: '#DEDEDE',  paddingHorizontal: 10, paddingVertical: 5, borderRadius: 5}]}
+                 >
+                    <Text style={[{color: 'red'}]}>Delete Changes</Text>
+                </Pressable>
+            </View>
+        </View>
+        
       </ScrollView>
     </SafeAreaView>
   );
@@ -134,8 +155,8 @@ const styles = StyleSheet.create({
     flexGrow: 1,
   },
   profileStyling: {
-    width: 200,
-    height: 200,
+    width: 100,
+    height: 100,
     borderRadius: 20,
   },
   ImageStyle: {
