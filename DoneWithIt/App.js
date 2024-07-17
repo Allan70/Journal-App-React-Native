@@ -11,7 +11,6 @@ import Signup from './screens/Signup';
 import Dashboard from './screens/Dashboard';
 import Writing from './screens/Writing';
 import Settings from './screens/Settings';
-import Editing from './screens/Editing';
 import Search from './screens/Search';
 import CustomTabBar from './screens/components/CustomTabBar';
 
@@ -31,19 +30,9 @@ function HomeTabs() {
           ),
         }} 
       />
-      {/* <Tab.Screen 
-        name="Editing" 
-        component={Writing}  
-        options={{
-          headerShown: false,
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="create-outline" size={size} color={color} />
-          ),
-        }} 
-      /> */}
       <Tab.Screen 
         name="Writing" 
-        component={Editing}  
+        component={Writing}  
         options={{
           headerShown: false,
           tabBarIcon: ({ color, size }) => (

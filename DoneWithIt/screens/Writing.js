@@ -1,11 +1,14 @@
 import React, { useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, SafeAreaView, TextInput } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, TextInput, Pressable, Image} from 'react-native';
 import QuillEditor, { QuillToolbar } from 'react-native-cn-quill';
 
 export default function Writing() {
   const [currentTime, setCurrentTime] = React.useState("");
   const [currentDate, setCurrentDate] = React.useState("");
+  const [categories, setCategories] = React.useState(["work", "home", "school"])
+  const [newCategory, setNewCategory] = React.useState("");
+  
   const _editor = React.createRef();
 
   const customStyles = {
@@ -112,18 +115,29 @@ export default function Writing() {
     },
   };
 
+ 
   const currentDateTime = new Date();
 
-  useEffect(()=>{
-    if(currentDate == "" && currentTime == "")
-    {
-      setCurrentDate(currentDateTime.toDateString())
-      setCurrentTime(currentDateTime.toLocaleTimeString())
+  useEffect(() => {
+    if (currentDate === "" && currentTime === "") {
+      setCurrentDate(currentDateTime.toDateString());
+      setCurrentTime(currentDateTime.toLocaleTimeString());
     }
-  }, [])
+  }, []);
+
+  const addCategory = () => {
+    if (newCategory && categories.length < 7) {
+      setCategories([...categories, newCategory]);
+      setNewCategory("");
+    }
+  };
+
+  const deleteCategory = (categoryToDelete) => {
+    setCategories(categories.filter(category => category !== categoryToDelete));
+  };
+  
   return (
-    <SafeAreaView style={[styles.root, {paddingTop: 40}]}>
-      <Navbar />
+    <SafeAreaView style={[styles.root, { paddingTop: 40 }]}>
       {/* Writing UI */}
       <View>
         <TextInput
@@ -131,8 +145,34 @@ export default function Writing() {
           placeholder='Title'
         />
       </View>
-      <View>
-        {/* Add categories here */}
+      {/* Categories */}
+      <View style={{ flexDirection: "row", padding: 10, marginLeft: 15, width: "100%", alignItems: 'center'}}>
+        {/* Categories Items */}
+        <View style={{ flexDirection: "row", maxWidth: "90%", flexWrap: 'wrap'}}>
+            {/* Add category */}
+        <View style={{flexDirection: "row", borderWidth: .5, borderColor: 'black', alignItems: 'cneter', height: 35, bordreRadius: 15, marginRight: 10, marginBottom: 5}}>
+          <TextInput
+            style={styles.customCategoryInput}
+            placeholder="New Category"
+            value={newCategory}
+            onChangeText={setNewCategory}
+          />
+          <Pressable style={{ padding: 0,borderColor: 'black', borderWidth: 1, paddingHorizontal: 7, margin: 5, height: 25}} onPress={addCategory}>
+            <Text style={{color: 'black'}}>+</Text>
+          </Pressable>
+        </View>
+          {/* Category Items */}
+          {categories.map((element, index) => (
+            <View key={index} style={styles.category}>
+              <Text>{element}</Text>
+              <Pressable
+                onPress={() => deleteCategory(element)} style={styles.deleteButton}
+              ><Text style={styles.catClose}>x</Text></Pressable>
+
+            </View>
+          ))}
+        </View>
+      
       </View>
       <View style={styles.createdAt}>
         <Text style={{ color: 'gray' }}>Created at {currentTime} {currentDate}</Text>
@@ -203,5 +243,36 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     borderBottomWidth: 1,
     borderColor: '#ccc',
+  },
+  category: {
+    paddingHorizontal: 10,
+    flexDirection: 'row',
+    borderColor: 'black',
+    borderWidth: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 5,
+    marginRight: 5, 
+    marginBottom: 5,
+    height: 33,
+  },
+  customCategoryInput: {
+    height: 40,
+    borderRadius: 5,
+    marginRight: 5, 
+    paddingHorizontal: 10,
+    alignSelf: 'center',
+  },
+  catClose: {
+    flexDirection: 'row',
+    paddingHorizontal: 7,
+    backgroundColor: 'lightgray',
+    borderColor: 'black', 
+    borderRadius: 4, 
+    marginLeft: 7, 
+    justifyContent: 'center', 
+    alignItems: 'center',
+    color: 'gray',
+    paddingBottom: 2,
   }
 });
