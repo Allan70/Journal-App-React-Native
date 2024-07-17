@@ -124,7 +124,7 @@ export default function Settings() {
         </View>
 
         {/* Saving and Deleting Setting Changes Buttons */}
-        <View style={[{padding: 20, marginLeft: "54%"}]}>
+        <View style={[{padding: 20, marginLeft: "47%"}]}>
             <View style={[{flexDirection: 'row', width: "100%"}]}>
                 <Pressable 
                     onPress={()=>Alert.alert("Adding Avatar to profile")}
