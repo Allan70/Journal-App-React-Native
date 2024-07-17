@@ -72,7 +72,7 @@ export default function Signup({navigation}) {
               
               <BoxContainer style={styles.btnHolder}>
                   <View style={styles.loginBtn}>
-                      <Pressable style={styles.button} >
+                      <Pressable style={styles.button}  onPress={()=>navigation.navigate("Login")}>
                         <Text style={styles.text}>Sign up</Text>
                       </Pressable>
                   </View>
