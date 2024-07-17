@@ -7,27 +7,6 @@ import DropDownPicker from 'react-native-dropdown-picker';
 export default function Settings() {
   const [isEnabled, setIsEnabled] = React.useState(false);
 
-  const [dateOpen, setDateOpen] = React.useState(false);
-  const [soundOpen, setSoundOpen] = React.useState(false);
-
-  const [dateValue, setDateValue] = React.useState(null);
-  const [soundValue, setSoundValue] = React.useState(null);
-
-  const [selectDateItems, setSelectDateItems] = React.useState([
-    { label: 'yyyy-mm-dd', value: 'yyyy-mm-dd' },
-    { label: 'yyyy/mm/dd', value: 'yyyy/mm/dd' },
-    { label: 'dd-mm-yyyy', value: 'dd-mm-yyyy' },
-    { label: 'dd/mm/yyyy', value: 'dd/mm/yyyy' },
-  ]);
-
-  const [selectSoundItems, setSelectSoundItems] = React.useState([
-    { label: 'Apple', value: 'apple' },
-    { label: 'Banana', value: 'banana' },
-    { label: 'Orange', value: 'orange' },
-    { label: 'Pawpaw', value: 'pawpaw' },
-    { label: 'Dragon Fruit', value: 'dragon fruit' },
-  ]);
-
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 
   return (
