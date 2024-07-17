@@ -1,8 +1,7 @@
-import { StyleSheet, Text, View, Image, ScrollView, Pressable, TextInput} from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView, Pressable, TextInput } from 'react-native';
 import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
-// import { } from 'react-native-gesture-handler';
 
 export default function Search() { 
   const [search, onChangeSearch] = React.useState("");
@@ -22,20 +21,22 @@ export default function Search() {
       </View>
 
       {/* Journal Chips */}
-      <ScrollView horizontal={true} style={[styles.journalChips, {backgroundColor: 'red'}]}>
-        <Pressable style={[styles.chipItem, {backgroundColor: 'lightgray', borderColor: 'lightgray'}]}>
-          <Text style={{color: 'black'}}>All</Text>
-        </Pressable>
-        <Pressable style={styles.chipItem}>
-          <Text>Work</Text>
-        </Pressable>
-        <Pressable style={styles.chipItem}>
-          <Text>School</Text>
-        </Pressable>
-        <Pressable style={styles.chipItem}>
-          <Text>Lab</Text>
-        </Pressable>
-      </ScrollView>
+      <View style={styles.journalChipsContainer}>
+        <ScrollView horizontal={true} style={styles.journalChips}>
+          <Pressable style={[styles.chipItem, {backgroundColor: 'lightgray', borderColor: 'lightgray'}]}>
+            <Text style={{color: 'black'}}>All</Text>
+          </Pressable>
+          <Pressable style={styles.chipItem}>
+            <Text>Work</Text>
+          </Pressable>
+          <Pressable style={styles.chipItem}>
+            <Text>School</Text>
+          </Pressable>
+          <Pressable style={styles.chipItem}>
+            <Text>Lab</Text>
+          </Pressable>
+        </ScrollView>
+      </View>
 
       {/* Journal Items */}
       <View style={styles.journalListContainer}>
@@ -95,10 +96,12 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: 'lightgray',
   },
+  journalChipsContainer: {
+    flexBasis: '10%',
+    minHeight: 40, // Ensures the ScrollView occupies at least 40 pixels in height
+  },
   journalChips: {
     flexDirection: 'row',
-    marginBottom: 0,
-    minHeight: 100, // Ensures the ScrollView occupies at least 100 pixels in height
   },
   chipItem: {
     height: 40,
@@ -112,7 +115,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   journalListContainer: {
-    flex: 1
+    flex: 1,
   },
   journalList: {
     flex: 1,
