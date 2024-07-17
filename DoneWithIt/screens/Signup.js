@@ -4,7 +4,7 @@ import BoxContainer from './components/BoxContainer';
 import { useFonts, JuliusSansOne_400Regular } from '@expo-google-fonts/julius-sans-one';
 
 
-export default function Signup() {
+export default function Signup({navigation}) {
   const [username, onChangeUsername] = React.useState("");
   const [email, onChangeEmail] = React.useState("");
   const [password, onChangePassword] = React.useState("");
@@ -77,7 +77,15 @@ export default function Signup() {
                       </Pressable>
                   </View>
               </BoxContainer>
-              
+              <View style={{flexDirection: "row", justifyContent: "center", alignItems: "center"}}>
+                        <Text style={{color: "black"}}>Already have an account? </Text>
+                        <Pressable
+                            onPress={()=>navigation.navigate("Login")}
+                        >
+                            <Text style={{color: "steelblue", textDecorationLine: "underline"}}>Login</Text>
+                        </Pressable>
+              </View>
+
           </BoxContainer>
       </SafeAreaView>
   );

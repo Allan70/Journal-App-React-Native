@@ -68,6 +68,11 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen 
+          name="Login" 
+          component={Login}  
+          options={{ headerShown: false }} 
+        />
+        <Stack.Screen 
           name="KALAMU" 
           component={HomeTabs} 
           options={{ headerShown: false }} 
@@ -75,11 +80,6 @@ export default function App() {
         <Stack.Screen 
           name="Signup" 
           component={Signup}  
-          options={{ headerShown: false }} 
-        />
-        <Stack.Screen 
-          name="Login" 
-          component={Login}  
           options={{ headerShown: false }} 
         />
         <Stack.Screen 

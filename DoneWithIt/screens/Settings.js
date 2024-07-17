@@ -4,7 +4,7 @@ import Userprofile from './components/Settings/Userprofile';
 import Passwordchange from './components/Settings/Passwordchange';
 import DropDownPicker from 'react-native-dropdown-picker';
 
-export default function Settings() {
+export default function Settings({navigation}) {
   const [isEnabled, setIsEnabled] = React.useState(false);
 
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
@@ -86,7 +86,7 @@ export default function Settings() {
         <View style={[styles.settingsContainer, {marginBottom: 15}]}>
             <Text style={{fontSize: 15}}>Are you sure you want to sign out of the application?</Text>
             <Pressable 
-                    onPress={()=>Alert.alert("Adding Avatar to profile")}
+                    onPress={()=>navigation.navigate("Login")}
                     style={[{backgroundColor: '#DEDEDE',  paddingHorizontal: 20, paddingVertical: 15, borderRadius: 5, width: "20%", marginTop: 15, marginLeft: "80%"}]}
                  >
                     <Text style={[{color: 'red', flexDirection: 'row', alignItems: 'center',justifyContent: 'center'}]}>Sign out</Text>

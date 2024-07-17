@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Image, Pressable, TextInput, Alert } from 'react-native';
 import BoxContainer from './components/BoxContainer';
 
-export default function Login() {
+export default function Login({navigation}) {
     const [username, onChangeUsername] = React.useState("");
     const [password, onChangePassword] = React.useState("");
 
@@ -30,11 +30,20 @@ export default function Login() {
 
                     <BoxContainer style={[styles.btnHolder, {backgroundColor: 'white', width:'100%', height: '100%'}]}>
                         <View style={[styles.loginBtn, {backgroundColor: 'white'}]}>
-                                <Pressable style={styles.button} onPress={()=>{}}>
+                                <Pressable style={styles.button} onPress={()=>{navigation.navigate("KALAMU")}}>
                                     <Text style={styles.text}>Login</Text>
                                 </Pressable>
                         </View>
                     </BoxContainer>
+
+                    <View style={{flexDirection: "row", justifyContent: "center", alignItems: "center"}}>
+                        <Text style={{color: "black"}}>Don't have an account? </Text>
+                        <Pressable
+                            onPress={()=>navigation.navigate("Signup")}
+                        >
+                            <Text style={{color: "steelblue", textDecorationLine: "underline"}}>Sign up</Text>
+                        </Pressable>
+                    </View>
 
                 </BoxContainer>
             </BoxContainer>
