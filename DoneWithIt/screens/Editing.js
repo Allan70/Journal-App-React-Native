@@ -3,6 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, SafeAreaView, TextInput } from 'react-native';
 import QuillEditor, { QuillToolbar } from 'react-native-cn-quill';
 
+
 export default function Editing() {
   const [currentTime, setCurrentTime] = React.useState("");
   const [currentDate, setCurrentDate] = React.useState("");

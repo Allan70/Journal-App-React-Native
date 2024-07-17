@@ -25,17 +25,6 @@ export default function Navbar() {
           <View style={{flex: 2, width: '100%', alignSelf: 'flex-end' }}>
             <View style={{flexDirection:'row', width:'100%', marginLeft: '60%'}}>
 
-                {/* Search */}
-                <Pressable style={{
-                        justifyContent: 'center', 
-                        alignItems:'center', 
-                        backgroundColor: 'lightgray', 
-                        width: 50,
-                        height:50,
-                        borderRadius: 25
-                }}>
-                    <Image source={require("../../assets/search.png")} style={{width: 30, height: 30, padding: 0, margin:0}}/>
-                </Pressable>
 
                 {/* Notifications */}
                 <Pressable style={{

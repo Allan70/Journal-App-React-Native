@@ -21,11 +21,11 @@ export default function Userprofile(props) {
                     onPress={()=>Alert.alert("Adding Avatar to profile")}
                     style={[{backgroundColor: '#4684E0',  marginRight: 10, borderRadius: 5}]}
                 >
-                    <Text style={[{color: 'white', paddingHorizontal: 10, paddingVertical: 5,}]}>Change Avatar</Text>
+                    <Text style={[{color: 'white', paddingHorizontal: 20, paddingVertical: 15,}]}>Change Avatar</Text>
                 </Pressable>
                 <Pressable 
                     onPress={()=>Alert.alert("Adding Avatar to profile")}
-                    style={[{backgroundColor: '#DEDEDE',  paddingHorizontal: 10, paddingVertical: 5, borderRadius: 5}]}
+                    style={[{backgroundColor: '#DEDEDE',  paddingHorizontal: 20, paddingVertical: 15, borderRadius: 5}]}
                  >
                     <Text style={[{color: 'red'}]}>Delete Avatar</Text>
                 </Pressable>

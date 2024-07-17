@@ -123,6 +123,7 @@ export default function Writing() {
   }, [])
   return (
     <SafeAreaView style={[styles.root, {paddingTop: 40}]}>
+      <Navbar />
       {/* Writing UI */}
       <View>
         <TextInput

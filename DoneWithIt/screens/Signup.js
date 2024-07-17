@@ -16,6 +16,7 @@ export default function Signup() {
 
   return (
       <SafeAreaView style={styles.container}>
+        
           <BoxContainer style={{width: "100%"}}>
               <BoxContainer>
                 <View>

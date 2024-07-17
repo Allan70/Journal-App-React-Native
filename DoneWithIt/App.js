@@ -27,11 +27,11 @@ function HomeTabs() {
         options={{
           headerShown: false,
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="home-outline" size={size} color={color} />
+            <Ionicons name="home" size={size} color={color} />
           ),
         }} 
       />
-      <Tab.Screen 
+      {/* <Tab.Screen 
         name="Editing" 
         component={Writing}  
         options={{
@@ -40,7 +40,7 @@ function HomeTabs() {
             <Ionicons name="create-outline" size={size} color={color} />
           ),
         }} 
-      />
+      /> */}
       <Tab.Screen 
         name="Writing" 
         component={Editing}  
