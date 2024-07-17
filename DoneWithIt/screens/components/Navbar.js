@@ -27,7 +27,7 @@ export default function Navbar() {
 
 
                 {/* Notifications */}
-                <Pressable style={{
+                {/* <Pressable style={{
                     justifyContent: 'center', 
                     alignItems:'center', 
                     backgroundColor: 'lightgray', 
@@ -37,7 +37,7 @@ export default function Navbar() {
                     marginLeft: 15
                  }}>
                     <Image source={require("../../assets/notification.png")} style={{width: 45, height: 45, padding: 0, margin:0}}/>
-                </Pressable>
+                </Pressable> */}
 
             </View>
           </View>
