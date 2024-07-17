@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, View, Text, StyleSheet, Pressable, Image, ScrollView, Switch } from 'react-native';
+import { SafeAreaView, View, Text, StyleSheet, Pressable, Image, ScrollView, Switch, Alert } from 'react-native';
 import Userprofile from './components/Settings/Userprofile';
 import Passwordchange from './components/Settings/Passwordchange';
 import DropDownPicker from 'react-native-dropdown-picker';
@@ -82,49 +82,12 @@ export default function Settings() {
               </View>
             </View>
 
-            {/* Date format */}
-            <View style={[{ flexDirection: 'row', marginBottom: 15, justifyContent: 'space-between', alignItems: 'center', zIndex: dateOpen ? 1 : 0 }]}>
-              <Text>Date format</Text>
-              <View style={{ width: 150 }}>
-                {/* Text Dropdown : Date formats */}
-                <DropDownPicker
-                  open={dateOpen}
-                  value={dateValue}
-                  items={selectDateItems}
-                  setOpen={setDateOpen}
-                  setValue={setDateValue}
-                  setItems={setSelectDateItems}
-                  containerStyle={styles.dropdownContainer}
-                  style={styles.dropdown}
-                  dropDownStyle={styles.dropdownList}
-                />
-              </View>
-            </View>
-
-            {/* Notification sound */}
-            <View style={[{ flexDirection: 'row', marginBottom: 5, justifyContent: 'space-between', alignItems: 'center', zIndex: soundOpen ? 1 : 0 }]}>
-              <Text>Notification sound</Text>
-              <View style={{ width: 150 }}>
-                {/* Text Dropdown : Notification Sounds to use */}
-                <DropDownPicker
-                  open={soundOpen}
-                  value={soundValue}
-                  items={selectSoundItems}
-                  setOpen={setSoundOpen}
-                  setValue={setSoundValue}
-                  setItems={setSelectSoundItems}
-                  containerStyle={styles.dropdownContainer}
-                  style={styles.dropdown}
-                  dropDownStyle={styles.dropdownList}
-                />
-
-              </View>
-            </View>
+       
           </View>
         </View>
 
         {/* Saving and Deleting Setting Changes Buttons */}
-        <View style={[{padding: 20, marginLeft: "47%"}]}>
+        <View style={[{padding: 20}]}>
             <View style={[{flexDirection: 'row', width: "100%"}]}>
                 <Pressable 
                     onPress={()=>Alert.alert("Adding Avatar to profile")}
@@ -139,6 +102,16 @@ export default function Settings() {
                     <Text style={[{color: 'red'}]}>Delete Changes</Text>
                 </Pressable>
             </View>
+        </View>
+
+        <View style={[styles.settingsContainer, {marginBottom: 15}]}>
+            <Text style={{fontSize: 15}}>Are you sure you want to sign out of the application?</Text>
+            <Pressable 
+                    onPress={()=>Alert.alert("Adding Avatar to profile")}
+                    style={[{backgroundColor: '#DEDEDE',  paddingHorizontal: 20, paddingVertical: 15, borderRadius: 5, width: "20%", marginTop: 15, marginLeft: "80%"}]}
+                 >
+                    <Text style={[{color: 'red', flexDirection: 'row', alignItems: 'center',justifyContent: 'center'}]}>Sign out</Text>
+            </Pressable>
         </View>
         
       </ScrollView>

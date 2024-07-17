@@ -116,14 +116,14 @@ export default function Writing() {
   };
 
  
-  const currentDateTime = new Date();
+  let currentDateTime = new Date();
 
   useEffect(() => {
     if (currentDate === "" && currentTime === "") {
       setCurrentDate(currentDateTime.toDateString());
       setCurrentTime(currentDateTime.toLocaleTimeString());
     }
-  }, []);
+  }, [currentDateTime]);
 
   const addCategory = () => {
     if (newCategory && categories.length < 7) {
