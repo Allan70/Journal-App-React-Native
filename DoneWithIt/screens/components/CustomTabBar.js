@@ -1,10 +1,11 @@
 import React from 'react';
-import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { View, TouchableOpacity, StyleSheet } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { Ionicons } from '@expo/vector-icons';
 
-export default function CustomTabBar({ state, descriptors, navigation }){
+export default function CustomTabBar({ state, descriptors, navigation }) {
   const insets = useSafeAreaInsets();
-  
+
   return (
     <View style={[styles.tabBar, { paddingBottom: insets.bottom }]}>
       {state.routes.map((route, index) => {
@@ -37,6 +38,9 @@ export default function CustomTabBar({ state, descriptors, navigation }){
           });
         };
 
+        // Extract the tabBarIcon option
+        const icon = options.tabBarIcon ? options.tabBarIcon({ color: isFocused ? '#673ab7' : '#222', size: 45}) : null;
+
         return (
           <TouchableOpacity
             key={index}
@@ -48,22 +52,20 @@ export default function CustomTabBar({ state, descriptors, navigation }){
             onLongPress={onLongPress}
             style={styles.tab}
           >
-            <Text style={{ color: isFocused ? '#673ab7' : '#222' }}>
-              {label}
-            </Text>
+            {icon}
           </TouchableOpacity>
         );
       })}
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   tabBar: {
     flexDirection: 'row',
     height: 60,
-    backgroundColor: '#fff', 
-    borderTopColor: '#ccc', 
+    backgroundColor: '#fff',
+    borderTopColor: '#ccc',
     borderTopWidth: 1,
     paddingBottom: 10,
   },
@@ -73,5 +75,3 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
-
-
