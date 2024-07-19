@@ -28,10 +28,7 @@
     },
     "plugins": [
       "expo-font",
-      "expo-secure-store",
-      {
-        "faceIDPermission": "Allow Kalamu to access your Face ID biometric data."
-      }
+      "expo-secure-store"
     ]
   }
 }

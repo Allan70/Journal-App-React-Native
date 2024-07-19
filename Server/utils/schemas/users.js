@@ -98,7 +98,7 @@ export async function SignInUser({ username, password }) {
         }
 
         const token = jwt.sign({ id: user.user_id }, SECRET_KEY, {
-            expiresIn: 86400 // 24 hours
+            expiresIn: 86400 // 24HRS
         });
 
         return { auth: true, token: token };
