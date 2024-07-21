@@ -30,7 +30,9 @@ export default function Login({navigation}) {
 
                     <BoxContainer style={[styles.btnHolder, {backgroundColor: 'white', width:'100%', height: '100%'}]}>
                         <View style={[styles.loginBtn, {backgroundColor: 'white'}]}>
-                                <Pressable style={styles.button} onPress={()=>{navigation.navigate("KALAMU")}}>
+                                <Pressable style={styles.button} onPress={()=>{
+                                        navigation.navigate("KALAMU")
+                                    }}>
                                     <Text style={styles.text}>Login</Text>
                                 </Pressable>
                         </View>

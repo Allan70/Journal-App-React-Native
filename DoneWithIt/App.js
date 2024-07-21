@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons'; 
+import { AuthProvider } from './app/context/AuthContext'; 
 
 import Landing from './screens/LandingPage';
 import Login from './screens/Login';
@@ -64,30 +65,34 @@ function HomeTabs() {
 }
 
 export default function App() {
+  const [authState, onLogout] = React.useAuth();
+
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen 
-          name="Login" 
-          component={Login}  
-          options={{ headerShown: false }} 
-        />
-        <Stack.Screen 
-          name="KALAMU" 
-          component={HomeTabs} 
-          options={{ headerShown: false }} 
-        />
-        <Stack.Screen 
-          name="Signup" 
-          component={Signup}  
-          options={{ headerShown: false }} 
-        />
-        <Stack.Screen 
-          name="Landing" 
-          component={Landing}  
-          options={{ headerShown: false }} 
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <AuthProvider>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen 
+            name="Login" 
+            component={Login}  
+            options={{ headerShown: false }} 
+          />
+          <Stack.Screen 
+            name="KALAMU" 
+            component={HomeTabs} 
+            options={{ headerShown: false }} 
+          />
+          <Stack.Screen 
+            name="Signup" 
+            component={Signup}  
+            options={{ headerShown: false }} 
+          />
+          <Stack.Screen 
+            name="Landing" 
+            component={Landing}  
+            options={{ headerShown: false }} 
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </AuthProvider>
   );
 }
